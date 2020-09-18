@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<main id="app" class="main">
+
+    <div class="container" v-cloak>
+        <h1>Swipe Sample</h1>
+        <p>this is container.</p>
+        <button
+            @click="showSwipePanelHandler()"
+            type="button"
+            class="btn btn-outline-primary"
+        >
+            open
+        </button>
+        <button
+            @click="hideSwipePanelHandler()"
+            type="button"
+            class="btn btn-outline-secondary"
+        >
+            close
+        </button>
+    </div>
+
+    <div
+        data-swipe="panel"
+        :aria-hidden="isSwipeAreaHidden"
+        v-cloak
+    >
+        <div data-swipe="nob"></div>
+
+        <div data-swipe="inner">
+            <ul class="sample_list">
+                <li
+                    @click="showModalHandler('content01')"
+                    class="sample_list__item"
+                >
+                    <h3>open Modal</h3>
+                    <p>content01</p>
+                </li>
+                <li
+                    @click="showModalHandler('content02')"
+                    class="sample_list__item"
+                >
+                    <h3>open Modal</h3>
+                    <p>content02</p>
+                </li>
+                <li
+                    @click="showModalHandler('content03')"
+                    class="sample_list__item"
+                >
+                    <h3>open Modal</h3>
+                    <p>content03</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div
+        data-modal="body"
+        :aria-hidden="isModalHidden"
+        v-cloak
+    >
+        <div class="container">
+            <div
+                data-content="content01"
+                :aria-hidden="!(selectedModalContent == 'content01')"
+            >
+                <h2>Content01</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div
+                data-content="content02"
+                :aria-hidden="!(selectedModalContent == 'content02')"
+            >
+                <h2>Content02</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div
+                data-content="content03"
+                :aria-hidden="!(selectedModalContent == 'content03')"
+            >
+                <h2>Content03</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p><img src="./img/sample.jpg" alt="" loading="lazy"></p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+        </div>
+    </div>
+
+    <div
+        @click="hideDetailHandler()"
+        data-swipe="bg"
+        :aria-hidden="isModalHidden"
+    >
+        <div data-modal="close"></div>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="./main.js"></script>
+
+</body>
+</html>
